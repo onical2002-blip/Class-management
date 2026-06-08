@@ -1,0 +1,578 @@
+/* Mode Toggle */
+.mode-toggle {
+  display: flex;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 30px;
+  padding: 4px;
+}
+
+.mode-btn {
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 14px;
+  color: var(--manager-muted);
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.mode-btn.active {
+  background: var(--manager-warm);
+  color: white;
+  box-shadow: 0 4px 12px rgba(201, 133, 78, 0.25);
+}
+
+/* Layout */
+.et-top-row {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.et-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+}
+
+.card-header {
+  margin-bottom: 16px;
+}
+
+.card-tag {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--manager-muted);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.card-header h3 {
+  font-size: 18px;
+  margin: 0;
+  color: var(--manager-ink);
+}
+
+/* Attendance Card */
+.attendance-card {
+  flex: 0 0 250px;
+}
+
+.attendance-inputs {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  margin-top: 16px;
+}
+
+.attendance-inputs .input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.attendance-inputs label {
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--manager-muted);
+}
+
+.attendance-inputs input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--manager-line);
+  border-radius: 12px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  background: rgba(255,255,255,0.7);
+  outline: none;
+}
+
+.start-exam-btn {
+  background: linear-gradient(135deg, var(--manager-accent-2), #3a8c80);
+  color: white;
+  margin-top: auto;
+  padding: 12px;
+  font-weight: bold;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.start-exam-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(47, 119, 109, 0.25);
+}
+
+/* Schedule Card */
+.schedule-card {
+  flex: 2;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--manager-muted);
+  margin-bottom: 8px;
+}
+
+.et-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--manager-line);
+  border-radius: 12px;
+  font-size: 14px;
+  background: rgba(255,255,255,0.7);
+  outline: none;
+}
+.et-input:focus {
+  border-color: var(--manager-accent);
+}
+
+.time-inputs-row {
+  display: flex;
+  gap: 16px;
+}
+
+.time-inputs-row .form-group {
+  flex: 1;
+}
+
+.add-schedule-btn {
+  align-self: flex-start;
+  margin-top: 8px;
+}
+
+/* Reminder Card */
+.reminder-card {
+  flex: 2;
+}
+
+.et-textarea {
+  flex: 1;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--manager-line);
+  border-radius: 12px;
+  resize: none;
+  font-size: 14px;
+  font-family: inherit;
+  min-height: 120px;
+  background: rgba(255,255,255,0.7);
+  outline: none;
+  line-height: 1.6;
+}
+
+/* Bottom Lists */
+.et-bottom-lists {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.et-list-card {
+  padding: 24px;
+  border-radius: 24px;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.list-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.round-btn {
+  border-radius: 20px;
+  padding: 4px 16px;
+  font-size: 12px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--manager-muted);
+}
+.empty-state h4 {
+  font-size: 16px;
+  margin: 0 0 8px 0;
+  color: var(--manager-ink);
+}
+.empty-state p {
+  font-size: 14px;
+  margin: 0;
+}
+
+.empty-state-small {
+  text-align: left;
+  padding: 10px 0;
+  font-size: 14px;
+  color: var(--manager-muted);
+}
+
+/* Schedules table */
+.schedules-table-container {
+  overflow-x: auto;
+}
+
+.schedules-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.schedules-table th, 
+.schedules-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--manager-line);
+}
+
+.schedules-table th {
+  font-weight: 800;
+  font-size: 13px;
+  color: var(--manager-muted);
+}
+
+.schedules-table td {
+  font-size: 14px;
+}
+
+.btn-danger-hover:hover {
+  background: var(--manager-danger) !important;
+  color: white !important;
+  border-color: var(--manager-danger) !important;
+}
+
+/* History Logs */
+.history-logs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.history-log-item {
+  display: flex;
+  gap: 16px;
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.4);
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+.history-log-item .time {
+  color: var(--manager-muted);
+  font-weight: 700;
+}
+
+/* ==================== Active Dashboard Mode ==================== */
+.active-dashboard-grid {
+  display: grid;
+  grid-template-columns: 3fr 1.5fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.et-giant-card {
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 28px;
+  min-height: 380px;
+}
+
+.active-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.exam-status-pill {
+  background: var(--manager-danger);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-weight: bold;
+  font-size: 14px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.clock-large {
+  font-size: 16px;
+  color: var(--manager-muted);
+}
+.clock-large strong {
+  font-size: 20px;
+  color: var(--manager-ink);
+  margin-left: 6px;
+}
+
+.exam-main-title {
+  font-size: 38px;
+  font-weight: 900;
+  color: var(--manager-ink);
+  margin-bottom: 24px;
+}
+
+.giant-timer-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--manager-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+
+.giant-timer-display {
+  font-size: 80px;
+  font-weight: 900;
+  color: var(--manager-ink);
+  font-family: monospace;
+  line-height: 1;
+  margin-bottom: 30px;
+}
+
+.progress-container {
+  margin-top: auto;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: rgba(111,78,55,0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--manager-accent), var(--manager-warm));
+  border-radius: 6px;
+  transition: width 1s linear;
+}
+
+.progress-percentage {
+  font-size: 12px;
+  color: var(--manager-muted);
+  font-weight: bold;
+}
+
+/* Sidebar panel active mode */
+.active-sidebar-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.attendance-status {
+  padding: 20px;
+}
+
+.attendance-status h3 {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+}
+
+.active-stat-row {
+  display: flex;
+  gap: 12px;
+}
+
+.active-stat {
+  flex: 1;
+  background: rgba(255,255,255,0.6);
+  border: 1px solid var(--manager-line);
+  padding: 12px;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.active-stat strong {
+  display: block;
+  font-size: 24px;
+  color: var(--manager-ink);
+}
+
+.active-stat span {
+  font-size: 11px;
+  color: var(--manager-muted);
+  font-weight: bold;
+}
+
+.active-stat.danger strong {
+  color: var(--manager-danger);
+}
+
+.reminders-chalk {
+  flex: 1;
+  padding: 20px;
+  background-color: #1c3c28; /* chalk board theme */
+  background-image: url('https://www.transparenttextures.com/patterns/dust.png');
+  border: 4px solid #5a4030;
+  border-radius: 12px;
+  color: #fff9e6;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.6);
+}
+
+.reminders-chalk h3 {
+  margin: 0 0 12px 0;
+  font-size: 15px;
+  color: #ffd699;
+}
+
+.reminders-text {
+  font-family: 'Kaiti', 'BiauKai', 'Noto Sans TC', sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+/* Bottom panel active mode */
+.active-bottom-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.active-list {
+  padding: 20px;
+  border-radius: 20px;
+  min-height: 180px;
+}
+
+.active-list h4 {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  color: var(--manager-accent);
+}
+
+.schedules-mini-list,
+.logs-mini-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.schedule-mini-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  padding: 6px 10px;
+  background: rgba(255,255,255,0.4);
+  border-radius: 6px;
+}
+
+.schedule-mini-item.past {
+  opacity: 0.5;
+}
+
+.schedule-mini-item.active {
+  background: rgba(46, 117, 108, 0.12);
+  border: 1px solid rgba(46, 117, 108, 0.25);
+  color: var(--manager-accent-2);
+  font-weight: bold;
+}
+
+.log-mini-item {
+  font-size: 13px;
+  display: flex;
+  gap: 8px;
+}
+.log-mini-item .log-time {
+  color: var(--manager-muted);
+  font-weight: 700;
+}
+
+/* ==================== Class Time Mode (Simple countdown card) ==================== */
+.class-timer-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 24px;
+  text-align: center;
+}
+
+.class-timer-header {
+  margin-bottom: 24px;
+}
+
+.class-timer-header h3 {
+  margin: 4px 0 0 0;
+  font-size: 22px;
+}
+
+.class-timer-display-box {
+  background: rgba(255,255,255,0.5);
+  border: 1px solid var(--manager-line);
+  padding: 30px;
+  border-radius: 18px;
+  margin-bottom: 24px;
+}
+
+.class-timer-digits {
+  font-size: 72px;
+  font-weight: 900;
+  font-family: monospace;
+  color: var(--manager-ink);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.class-timer-adjust-btns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.class-timer-adjust-btns .btn {
+  padding: 8px 4px;
+  font-size: 12px;
+  border-radius: 8px;
+}
+
+.class-timer-controls {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.class-timer-controls .btn-large {
+  flex: 1;
+  padding: 12px 24px;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .active-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  .active-bottom-bar {
+    grid-template-columns: 1fr;
+  }
+  .et-top-row {
+    flex-direction: column;
+  }
+}

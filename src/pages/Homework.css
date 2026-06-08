@@ -1,0 +1,241 @@
+.hw-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.hw-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.hw-card {
+  width: 320px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+.hw-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.hw-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.hw-date {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--primary);
+  background: rgba(79, 109, 122, 0.1);
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.hw-badge {
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+.hw-badge.success {
+  background: #27ae60;
+  color: white;
+}
+
+.hw-title {
+  font-size: 20px;
+  margin: 0 0 20px 0;
+  color: var(--text-main);
+}
+
+.hw-progress-container {
+  margin-bottom: 24px;
+}
+
+.hw-progress-bar {
+  height: 8px;
+  background: rgba(0,0,0,0.05);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.hw-progress-fill {
+  height: 100%;
+  background: var(--success);
+  transition: width 0.5s ease-out;
+}
+
+.hw-progress-text {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--text-muted);
+}
+
+.hw-status-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.status-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 4px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.status-box .label {
+  font-size: 10px;
+  margin-bottom: 4px;
+}
+
+.status-box .count {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.box-0 { background: #fdf0ed; color: #e74c3c; border-color: #fadbd8; } /* 未繳交 */
+.box-1 { background: #ecf6fd; color: #3498db; border-color: #d6eaf8; } /* 已繳交 */
+.box-2 { background: #fdf0ed; color: #e74c3c; border-color: #fadbd8; } /* 待訂正 - usually orange/red */
+.box-3 { background: #eafaf1; color: #2ecc71; border-color: #d5f5e3; } /* 已完成 */
+
+/* Detail View Styles */
+.hw-detail-header {
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.hw-tag {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.hw-detail-title-area h2 {
+  font-size: 32px;
+  margin: 0 0 8px 0;
+  color: var(--primary);
+}
+
+.hw-detail-title-area p {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin: 0;
+}
+
+.hw-detail-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 6px solid #eafaf1;
+  border-top-color: #2ecc71;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(45deg);
+}
+
+.progress-circle > * {
+  transform: rotate(-45deg);
+}
+
+.pc-percent {
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--text-main);
+}
+.pc-label {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.hw-status-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.hw-students-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+  padding-bottom: 40px;
+}
+
+.hw-student-card {
+  background: white;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: var(--border-radius-md);
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.hw-student-card:hover {
+  transform: scale(1.02);
+}
+
+.student-number {
+  font-size: 28px;
+  font-weight: 900;
+  margin-bottom: 4px;
+  color: var(--text-main);
+}
+
+.student-name {
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  color: var(--text-muted);
+}
+
+.student-status-badge {
+  font-size: 10px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+/* Status variants for student cards */
+.st-0 { border-color: #fadbd8; background-color: #fffaf9; }
+.st-0 .student-number { color: #e74c3c; }
+.st-0 .student-status-badge { background: #fdf0ed; color: #e74c3c; }
+
+.st-1 { border-color: #d6eaf8; background-color: #f7fbfe; }
+.st-1 .student-number { color: #3498db; }
+.st-1 .student-status-badge { background: #ecf6fd; color: #3498db; }
+
+.st-2 { border-color: #fadbd8; background-color: #fffaf9; }
+.st-2 .student-number { color: #e74c3c; }
+.st-2 .student-status-badge { background: #fdf0ed; color: #e74c3c; }
+
+.st-3 { border-color: #d5f5e3; background-color: #f9fdfa; }
+.st-3 .student-number { color: #2ecc71; }
+.st-3 .student-status-badge { background: #eafaf1; color: #2ecc71; }

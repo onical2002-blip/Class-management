@@ -1,0 +1,179 @@
+.points-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+  padding-bottom: 32px;
+}
+
+.student-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 16px rgba(92, 72, 58, 0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: var(--border-radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: var(--transition);
+}
+
+.student-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(92, 72, 58, 0.08);
+  border-color: rgba(140, 110, 88, 0.3);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.student-card-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.student-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.edit-btn {
+  color: var(--text-light);
+  background: transparent;
+  padding: 4px;
+  border-radius: 4px;
+}
+.edit-btn:hover {
+  background: rgba(0,0,0,0.05);
+  color: var(--text-muted);
+}
+
+.student-score {
+  font-size: 42px;
+  font-weight: 900;
+  margin: 10px 0 20px 0;
+  line-height: 1;
+}
+
+.student-actions {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.point-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.point-btn.minus {
+  background-color: #f1f3f5;
+  color: #e74c3c;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.point-btn.minus:hover {
+  background-color: #e9ecef;
+}
+
+.point-btn.plus {
+  background-color: #e74c3c; /* As per screenshot, plus button is orange/red */
+  background-image: linear-gradient(135deg, #ff7e5f, #feb47b);
+  border: none;
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+}
+.point-btn.plus:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+}
+
+.points-header-tabs {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.points-tab-btn {
+  padding: 6px 16px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  font-size: 13px;
+  font-weight: 600;
+  color: #495057;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.points-tab-btn:hover {
+  background: white;
+  color: #1a73e8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.points-tab-btn.active {
+  background: rgba(26, 115, 232, 0.1);
+  color: #1a73e8;
+  border-color: rgba(26, 115, 232, 0.3);
+  font-weight: bold;
+}
+
+.settlement-container {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-md);
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(92, 72, 58, 0.04);
+  max-height: 550px;
+  overflow-y: auto;
+}
+
+.settlement-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.settlement-table th {
+  padding: 14px 16px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.06);
+  color: var(--text-muted);
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.settlement-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+.settlement-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.settlement-table td.net-points {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.settlement-table td.final-grade {
+  font-weight: 700;
+  color: #999;
+}
+
+.settlement-table td.final-grade.calculated {
+  color: #2e756c;
+}

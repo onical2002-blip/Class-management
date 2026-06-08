@@ -1,0 +1,98 @@
+:root {
+  --primary: #1e352f; /* Deep Forest Green for premium grounding */
+  --primary-hover: #13221e;
+  --secondary: #fdfaf2; /* Soft warm ivory cream */
+  --accent: #faf0dd; /* Cozy light gold/beige */
+  --accent-2: #e07a5f; /* Terracotta orange from mascot buttons */
+  --accent-2-hover: #c9654b;
+  --success: #3d8c7a; /* Sage Green */
+  
+  --bg-color: #fdfaf2;
+  --text-main: #3d2616; /* Warm wood ink */
+  --text-muted: #8c6e58; /* Cozy warm brown */
+  --text-light: #b0937c;
+  
+  --glass-bg: rgba(255, 253, 248, 0.75); /* Soft warm cream glass */
+  --glass-border: rgba(140, 110, 88, 0.18);
+  --glass-shadow: 0 20px 48px rgba(92, 72, 58, 0.08);
+  
+  --border-radius-sm: 10px;
+  --border-radius-md: 16px;
+  --border-radius-lg: 24px;
+  --border-radius-xl: 36px;
+  
+  --transition: all 0.2s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'IBM Plex Sans JP', 'Noto Sans TC', 'PingFang TC', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.5;
+  background: 
+    radial-gradient(circle at 10% 10%, rgba(253, 203, 110, 0.22), transparent 40vw),
+    radial-gradient(circle at 90% 20%, rgba(120, 224, 143, 0.15), transparent 35vw),
+    linear-gradient(135deg, #fdfaf2 0%, #faf3e0 50%, #f7ebd3 100%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  min-height: 100vh;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(140, 110, 88, 0.08) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
+  z-index: -1;
+}
+
+#root {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  transition: var(--transition);
+}
+
+input, select, textarea {
+  font-family: inherit;
+  outline: none;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.1);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,0,0,0.2);
+}
