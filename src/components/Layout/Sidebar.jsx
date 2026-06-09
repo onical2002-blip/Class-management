@@ -17,8 +17,29 @@ const navItems = [
 ];
 
 const Sidebar = ({ width }) => {
-  const { currentClass } = useClass();
+  const { 
+    currentClass, 
+    googleUser, 
+    googleClientId, 
+    loginWithGoogle, 
+    logoutGoogle, 
+    syncToCloud, 
+    syncFromCloud, 
+    syncStatus 
+  } = useClass();
   const [showSettings, setShowSettings] = useState(false);
+
+  const handleGoogleLogin = () => {
+    if (!googleClientId) {
+      alert("請先點擊下方『設定』(齒輪) 按鈕，輸入您的 Google Client ID 才能啟用登入功能喔！");
+      setShowSettings(true);
+      return;
+    }
+    loginWithGoogle().catch(err => {
+      console.error(err);
+      alert("登入失敗: " + (err.message || "請確認 Client ID 設定與網路連線。"));
+    });
+  };
 
   return (
     <div 
@@ -27,16 +48,66 @@ const Sidebar = ({ width }) => {
     >
       {/* Profile Section */}
       <div className="profile-section">
-        <div className="profile-card">
-          <div className="avatar-placeholder">班</div>
-          <div className="profile-info">
-            <h3>班級管理</h3>
-            <p>本機端教師工作台</p>
-          </div>
-        </div>
-        <button className="btn btn-outline" style={{ borderRadius: '20px', fontSize: '12px', padding: '6px' }}>
-          Google 登入
-        </button>
+        {!googleUser ? (
+          <>
+            <div className="profile-card">
+              <div className="avatar-placeholder">班</div>
+              <div className="profile-info">
+                <h3>班級管理</h3>
+                <p>本機端教師工作台</p>
+              </div>
+            </div>
+            <button 
+              className="btn btn-outline" 
+              onClick={handleGoogleLogin}
+              style={{ borderRadius: '20px', fontSize: '12px', padding: '6px', width: '100%', marginTop: '8px' }}
+            >
+              Google 登入
+            </button>
+          </>
+        ) : (
+          <>
+            <div className="profile-card">
+              <img 
+                src={googleUser.picture} 
+                alt={googleUser.name} 
+                style={{ width: '40px', height: '40px', borderRadius: '50%' }} 
+              />
+              <div className="profile-info">
+                <h3 style={{ fontSize: '13px', fontWeight: 'bold' }}>{googleUser.name}</h3>
+                <p style={{ color: '#2ecc71', display: 'flex', alignItems: 'center', gap: '4px', fontSize: '11px', margin: 0 }}>
+                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#2ecc71', display: 'inline-block' }}></span>
+                  已登入雲端 {syncStatus === 'syncing' ? '(同步中...)' : ''}
+                </p>
+              </div>
+            </div>
+            <div className="google-actions-row" style={{ display: 'flex', gap: '6px', width: '100%', marginTop: '8px' }}>
+              <button 
+                className="btn btn-glass btn-small" 
+                onClick={() => syncToCloud()} 
+                style={{ flex: 1, padding: '4px', fontSize: '11px', whiteSpace: 'nowrap' }}
+                title="儲存本機變更至雲端硬碟"
+              >
+                儲存雲端
+              </button>
+              <button 
+                className="btn btn-glass btn-small" 
+                onClick={() => syncFromCloud()} 
+                style={{ flex: 1, padding: '4px', fontSize: '11px', whiteSpace: 'nowrap' }}
+                title="從雲端載入最新進度"
+              >
+                載入雲端
+              </button>
+              <button 
+                className="btn btn-outline btn-small" 
+                onClick={logoutGoogle} 
+                style={{ padding: '4px 8px', fontSize: '11px', color: '#e74c3c', borderColor: '#f9d5d5', whiteSpace: 'nowrap' }}
+              >
+                登出
+              </button>
+            </div>
+          </>
+        )}
       </div>
 
       <hr style={{ border: 'none', borderTop: '1px solid rgba(0,0,0,0.05)', margin: '4px 0' }} />
