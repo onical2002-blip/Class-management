@@ -104,14 +104,11 @@ export const ClassProvider = ({ children }) => {
     const saved = sessionStorage.getItem('google_user');
     return saved ? JSON.parse(saved) : null;
   });
-  const [googleClientId, setGoogleClientId] = useState(() => {
-    return localStorage.getItem('google_client_id') || '';
-  });
   const [syncStatus, setSyncStatus] = useState('idle'); // 'idle', 'syncing', 'success', 'error'
 
-  useEffect(() => {
-    localStorage.setItem('google_client_id', googleClientId);
-  }, [googleClientId]);
+  // 💡 請在此處填入您的 Google OAuth 用戶端 ID (Client ID)
+  // 填寫後，所有使用者開啟網頁即可直接一鍵登入，無需做任何繁瑣設定！
+  const GOOGLE_CLIENT_ID = '601360098939-xxxxxxxx.apps.googleusercontent.com';
 
   // Persist to localStorage whenever state changes
   useEffect(() => {
@@ -180,11 +177,11 @@ export const ClassProvider = ({ children }) => {
     setStudents(prev => prev.map(s => ({ ...s, groupId: null })));
   };
 
-  const loginWithGoogle = (clientId) => {
+  const loginWithGoogle = () => {
     return new Promise((resolve, reject) => {
-      const activeClientId = clientId || googleClientId;
-      if (!activeClientId) {
-        reject(new Error("未設定 Google Client ID"));
+      const activeClientId = GOOGLE_CLIENT_ID;
+      if (!activeClientId || activeClientId.includes('xxxxxxxx')) {
+        reject(new Error("未設定有效的 Google Client ID。請於 ClassContext.jsx 中設定您的 GOOGLE_CLIENT_ID 常數。"));
         return;
       }
       if (!window.google || !window.google.accounts || !window.google.accounts.oauth2) {
@@ -322,8 +319,6 @@ export const ClassProvider = ({ children }) => {
     clearGroups,
     googleUser,
     setGoogleUser,
-    googleClientId,
-    setGoogleClientId,
     loginWithGoogle,
     logoutGoogle,
     syncToCloud,

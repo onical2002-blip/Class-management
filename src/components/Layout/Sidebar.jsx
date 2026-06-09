@@ -20,7 +20,6 @@ const Sidebar = ({ width }) => {
   const { 
     currentClass, 
     googleUser, 
-    googleClientId, 
     loginWithGoogle, 
     logoutGoogle, 
     syncToCloud, 
@@ -30,11 +29,6 @@ const Sidebar = ({ width }) => {
   const [showSettings, setShowSettings] = useState(false);
 
   const handleGoogleLogin = () => {
-    if (!googleClientId) {
-      alert("請先點擊下方『設定』(齒輪) 按鈕，輸入您的 Google Client ID 才能啟用登入功能喔！");
-      setShowSettings(true);
-      return;
-    }
     loginWithGoogle().catch(err => {
       console.error(err);
       alert("登入失敗: " + (err.message || "請確認 Client ID 設定與網路連線。"));

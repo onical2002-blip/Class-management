@@ -9,14 +9,11 @@ const SettingsModal = ({ onClose }) => {
     currentClass, 
     setCurrentClass, 
     students, 
-    setStudents,
-    googleClientId,
-    setGoogleClientId
+    setStudents
   } = useClass();
 
   // Modal State
   const [className, setClassName] = useState(currentClass.name);
-  const [clientIdInput, setClientIdInput] = useState(googleClientId);
   const [maxSeats, setMaxSeats] = useState(() => {
     if (students.length === 0) return 30;
     const maxId = Math.max(...students.map(s => s.id));
@@ -183,7 +180,6 @@ const SettingsModal = ({ onClose }) => {
       }));
 
     setStudents(newStudents);
-    setGoogleClientId(clientIdInput.trim());
     setCurrentClass({
       name: className.trim(),
       totalStudents: newStudents.length,
@@ -312,17 +308,7 @@ const SettingsModal = ({ onClose }) => {
                 </select>
               </div>
             </div>
-            <div className="settings-row" style={{ marginTop: '12px' }}>
-              <div className="field flex-1">
-                <label>Google API Client ID (雲端同步專用)</label>
-                <input 
-                  type="text" 
-                  value={clientIdInput} 
-                  onChange={e => setClientIdInput(e.target.value)} 
-                  placeholder="請填入您的 Google OAuth 用戶端 ID 以啟用 Google 雲端硬碟同步功能"
-                />
-              </div>
-            </div>
+
           </div>
 
           {/* Data Backup */}
